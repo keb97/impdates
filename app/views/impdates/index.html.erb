@@ -1,0 +1,28 @@
+<h1>Important Dates</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Justification of Importance</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+<% @impdates.each do |impdate| %>
+  <tr>
+  <% if impdate.impdate > Date.today %>
+    <td><%= impdate.impdate %></td>
+    <td><%= impdate.explanation %></td>
+    <td><%= link_to 'Show', impdate %></td>
+    <td><%= link_to 'Edit', edit_impdate_path(impdate) %></td>
+    <td><%= link_to 'Destroy', impdate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Important Date', new_impdate_path %>
